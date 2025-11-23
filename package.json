@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@visa/bar-chart": "^7.0.1",
+    "@visa/stacked-bar-chart": "^7.0.1"
+  }
+}

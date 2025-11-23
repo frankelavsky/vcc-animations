@@ -1,0 +1,312 @@
+<html>
+    <body>
+        <button id="change">Change data</button>
+        <br><br><br>
+        <div>
+            <span id="bar-wrapper"></span>
+            <span id="stack-wrapper"></span>
+        </div>
+    </body>
+    <script src="./node_modules/@visa/bar-chart/dist/bar-chart/bar-chart.js" data-stencil-namespace="bar-chart">
+    //   import  * as bar from ''; // Example path
+    //   // ... use someFunction
+    //   console.log(bar)
+    
+    </script>
+    <script src="./node_modules/@visa/stacked-bar-chart/dist/stacked-bar-chart/stacked-bar-chart.js" data-stencil-namespace="stacked-bar-chart">
+    //   import  * as bar from ''; // Example path
+    //   // ... use someFunction
+    //   console.log(bar)
+    
+    </script>
+    <script>
+        let i = 0
+        const bStart = [
+            { Category: "#FFD700", Value: 1.4, Note: "Fails Contrast Requirements" },
+            { Category: "#FFB14E", Value: 1.8, Note: "Fails Contrast Requirements" },
+            { Category: "#FA8775", Value: 2.38, Note: "Fails Contrast Requirements" },
+            {
+                Category: "#EA5F94",
+                Value: 3.19,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#CD34B5",
+                Value: 4.41,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#9D02D7",
+                Value: 6.13,
+                Note: "Passes Contrast Requirements"
+            },
+            { Category: "#0000FF", Value: 8.59, Note: "Passes Contrast Requirements" }
+            ]
+        const bChange = [
+            { Category: "#FFD700", Value: 20, Note: "Fails Contrast Requirements" },
+            { Category: "#FFB14E", Value: 18, Note: "Fails Contrast Requirements" },
+            { Category: "#FA8775", Value: 16, Note: "Fails Contrast Requirements" },
+            {
+                Category: "#EA5F94",
+                Value: 14,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#CD34B5",
+                Value: 16,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#9D02D7",
+                Value: 18,
+                Note: "Passes Contrast Requirements"
+            },
+            { Category: "#0000FF", Value: 20, Note: "Passes Contrast Requirements" }
+            ]
+        const bExit1 = [
+            { Category: "#FFD700", Value: 1.4, Note: "Fails Contrast Requirements" },
+            { Category: "#FFB14E", Value: 1.8, Note: "Fails Contrast Requirements" },
+            {
+                Category: "#EA5F94",
+                Value: 3.19,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#CD34B5",
+                Value: 4.41,
+                Note: "Passes Contrast Requirements"
+            },
+            { Category: "#0000FF", Value: 8.59, Note: "Passes Contrast Requirements" }
+            ]
+        const bExit2 = [
+            { Category: "#FFD700", Value: 1.4, Note: "Fails Contrast Requirements" },
+            { Category: "#FFB14E", Value: 1.8, Note: "Fails Contrast Requirements" },
+            {
+                Category: "#EA5F94",
+                Value: 3.19,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#CD34B5",
+                Value: 4.41,
+                Note: "Passes Contrast Requirements"
+            }
+            ]
+        const sStart = [
+            { Category: "A", Group: "1", Value: 10 },
+            { Category: "A", Group: "2", Value: 15 },
+            { Category: "A", Group: "3", Value: 9 },
+            { Category: "B", Group: "1", Value: 15 },
+            { Category: "B", Group: "2", Value: 14 },
+            { Category: "B", Group: "3", Value: 14 },
+            { Category: "C", Group: "1", Value: 12 },
+            { Category: "C", Group: "2", Value: 14 },
+            { Category: "C", Group: "3", Value: 13 },
+            { Category: "D", Group: "1", Value: 11 },
+            { Category: "D", Group: "2", Value: 13 },
+            { Category: "D", Group: "3", Value: 11 },
+            { Category: "E", Group: "1", Value: 19, Note: "Highest Value" },
+            { Category: "E", Group: "2", Value: 18 },
+            { Category: "E", Group: "3", Value: 12 },
+            { Category: "F", Group: "1", Value: 12 },
+            { Category: "F", Group: "2", Value: 5, Note: "Lowest Value" },
+            { Category: "F", Group: "3", Value: 16 }
+            ]
+        const sChange = [
+            { Category: "A", Group: "1", Value: 20 },
+            { Category: "A", Group: "2", Value: 20 },
+            { Category: "A", Group: "3", Value: 20 },
+            { Category: "B", Group: "1", Value: 21 },
+            { Category: "B", Group: "2", Value: 18 },
+            { Category: "B", Group: "3", Value: 21 },
+            { Category: "C", Group: "1", Value: 22 },
+            { Category: "C", Group: "2", Value: 16 },
+            { Category: "C", Group: "3", Value: 22 },
+            { Category: "D", Group: "1", Value: 23 },
+            { Category: "D", Group: "2", Value: 14 },
+            { Category: "D", Group: "3", Value: 23 },
+            { Category: "E", Group: "1", Value: 24, Note: "Highest Value" },
+            { Category: "E", Group: "2", Value: 12 },
+            { Category: "E", Group: "3", Value: 24 },
+            { Category: "F", Group: "1", Value: 25 },
+            { Category: "F", Group: "2", Value: 10, Note: "Lowest Value" },
+            { Category: "F", Group: "3", Value: 25 }
+            ]
+        const sExit1 = [
+            { Category: "A", Group: "1", Value: 10 },
+            { Category: "A", Group: "2", Value: 15 },
+            { Category: "A", Group: "3", Value: 9 },
+            { Category: "B", Group: "1", Value: 15 },
+            { Category: "B", Group: "2", Value: 14 },
+            { Category: "B", Group: "3", Value: 14 },
+            { Category: "D", Group: "1", Value: 11 },
+            { Category: "D", Group: "2", Value: 13 },
+            { Category: "D", Group: "3", Value: 11 },
+            { Category: "F", Group: "1", Value: 12 },
+            { Category: "F", Group: "2", Value: 5, Note: "Lowest Value" },
+            { Category: "F", Group: "3", Value: 16 }
+            ]
+        const sExit2 = [
+            { Category: "A", Group: "1", Value: 10 },
+            { Category: "A", Group: "3", Value: 9 },
+            { Category: "B", Group: "1", Value: 15 },
+            { Category: "B", Group: "3", Value: 14 },
+            { Category: "D", Group: "1", Value: 11 },
+            { Category: "D", Group: "3", Value: 11 },
+            { Category: "F", Group: "1", Value: 12 },
+            { Category: "F", Group: "3", Value: 16 }
+            ]
+        const newData = {
+            bar: [
+                bStart,
+                bChange,
+                bStart,
+                bExit1,
+                bExit2,
+            ],
+            stack: [
+                sStart,
+                sChange,
+                sStart,
+                sExit1,
+                sExit2
+            ]
+        }
+        const ratiosProps = {
+            mainTitle:
+            "",
+            subTitle: ``,
+            data: [
+            { Category: "#FFD700", Value: 1.4, Note: "Fails Contrast Requirements" },
+            { Category: "#FFB14E", Value: 1.8, Note: "Fails Contrast Requirements" },
+            { Category: "#FA8775", Value: 2.38, Note: "Fails Contrast Requirements" },
+            {
+                Category: "#EA5F94",
+                Value: 3.19,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#CD34B5",
+                Value: 4.41,
+                Note: "Passes Contrast Requirements"
+            },
+            {
+                Category: "#9D02D7",
+                Value: 6.13,
+                Note: "Passes Contrast Requirements"
+            },
+            { Category: "#0000FF", Value: 8.59, Note: "Passes Contrast Requirements" }
+            ],
+            height: 450,
+            padding: { top: 50, bottom: 50, right: 20, left: 20 },
+            colors: [
+            "#FFD700",
+            "#FFB14E",
+            "#FA8775",
+            "#EA5F94",
+            "#CD34B5",
+            "#9D02D7",
+            "#0000FF"
+            ],
+            ordinalAccessor: "Category",
+            valueAccessor: "Value",
+            groupAccessor: "Category",
+            uniqueID: "observable-bar-chart-dark",
+            yAxis: { visible: false, gridVisible: false },
+            dataLabel: { visible: true, placement: "top", format: "0.[00]" },
+            xAxis: { label: "", visible: true },
+            legend: { visible: false },
+            accessibility: {
+            elementDescriptionAccessor: "Note",
+            longDescription:
+                "This is an example bar chart, made with the Visa Chart Component Library.",
+            executiveSummary: "Category E is the Highest Value, F is the Lowest.",
+            statisticalNotes: "Chart is sorted in descending order.",
+            elementsAreInterface: false,
+            disableValidation: true,
+            hideTextures: true,
+            hideStrokes: true,
+            // onChangeFunc: scootchLabel
+            }
+        }
+        const stackedProps = {
+            mainTitle:
+            "",
+            subTitle:
+            "",
+            data: [
+            { Category: "A", Group: "1", Value: 10 },
+            { Category: "A", Group: "2", Value: 15 },
+            { Category: "A", Group: "3", Value: 9 },
+            { Category: "B", Group: "1", Value: 15 },
+            { Category: "B", Group: "2", Value: 14 },
+            { Category: "B", Group: "3", Value: 14 },
+            { Category: "C", Group: "1", Value: 12 },
+            { Category: "C", Group: "2", Value: 14 },
+            { Category: "C", Group: "3", Value: 13 },
+            { Category: "D", Group: "1", Value: 11 },
+            { Category: "D", Group: "2", Value: 13 },
+            { Category: "D", Group: "3", Value: 11 },
+            { Category: "E", Group: "1", Value: 19, Note: "Highest Value" },
+            { Category: "E", Group: "2", Value: 18 },
+            { Category: "E", Group: "3", Value: 12 },
+            { Category: "F", Group: "1", Value: 12 },
+            { Category: "F", Group: "2", Value: 5, Note: "Lowest Value" },
+            { Category: "F", Group: "3", Value: 16 }
+            ],
+            height: 450,
+            width: 678,
+            padding: { top: 100, bottom: 50, right: 20, left: 20 },
+            colors: [
+            "#BC34B5",
+            "#9D02D7",
+            "#0000FF"
+            ],
+            ordinalAccessor: "Group",
+            valueAccessor: "Value",
+            groupAccessor: "Category",
+            uniqueID: "observable-bar-chart",
+            legend: {hide:true},
+            yAxis: { visible: false, gridVisible: false },
+            xAxis: { label: "", visible: true },
+            accessibility: {
+            elementDescriptionAccessor: "Note",
+            longDescription:
+                "This is an example stacked bar chart, made with the Visa Chart Component Library.",
+            executiveSummary: "Category E 1 is the Highest Value, F 2 is the Lowest.",
+            statisticalNotes: "Chart is sorted in descending order.",
+            elementsAreInterface: false,
+            disableValidation: true,
+            hideTextures: true,
+            hideStrokes: false
+            }
+        }
+        
+        let barChart = document.getElementById("bar");
+        if (!barChart) {
+            barChart = document.createElement("bar-chart");
+            barChart.id = "bar"
+        }
+        Object.keys(ratiosProps).forEach((prop) => {
+            barChart[prop] = ratiosProps[prop];
+        });
+        let stackedBar = document.getElementById("stacked");
+        if (!stackedBar) {
+            stackedBar = document.createElement("stacked-bar-chart");
+            stackedBar.id = "stacked"
+        }
+        Object.keys(stackedProps).forEach((prop) => {
+            stackedBar[prop] = stackedProps[prop];
+        });
+        document.getElementById('bar-wrapper').appendChild(barChart)
+        document.getElementById('stack-wrapper').appendChild(stackedBar)
+        document.getElementById("change").addEventListener("click", ()=>{
+            i++
+            if (i === 5) {
+                i = 0
+            }
+            barChart["data"] = newData.bar[i];
+            stackedBar["data"] = newData.stack[i];
+        })
+    </script>
+</html>
