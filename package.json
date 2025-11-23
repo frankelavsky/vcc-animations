@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@visa/bar-chart": "^7.0.1",
-    "@visa/stacked-bar-chart": "^7.0.1"
+    "@visa/keyboard-instructions": "^2.0.1",
+    "@visa/stacked-bar-chart": "^7.0.1",
+    "@visa/visa-charts-data-table": "^3.0.1"
   }
 }
